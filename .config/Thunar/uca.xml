@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>kitty</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1698290246920993-1</unique-id>
+	<command>kitty %f</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>org.xfce.catfish</icon>
+	<name>Catfish Search</name>
+	<submenu></submenu>
+	<unique-id>1725227608175962-1</unique-id>
+	<command>catfish --hidden --path=%f</command>
+	<description>Search for files using catfish</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>nvim</name>
+	<submenu></submenu>
+	<unique-id>1701909282625481-1</unique-id>
+	<command>kitty nvim %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Folders-Files Size</name>
+	<submenu></submenu>
+	<unique-id>1725730472734178-1</unique-id>
+	<command>u -h -c %N | grep total | zenity --text-info</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>

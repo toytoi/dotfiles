@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/toytoi/.config/wpg/wallpapers/sukinanocropped.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#341e15",
+        "foreground": "#fffff6",
+        "cursor": "#fffff6"
+    },
+    "colors": {
+        "color0": "#341e15",
+        "color1": "#D0A46C",
+        "color2": "#E4CEAB",
+        "color3": "#DDA95E",
+        "color4": "#E9DAC9",
+        "color5": "#B7A48D",
+        "color6": "#C9B295",
+        "color7": "#f3ebe3",
+        "color8": "#573223",
+        "color9": "#ffd777",
+        "color10": "#ffffc1",
+        "color11": "#ffdf65",
+        "color12": "#ffffd2",
+        "color13": "#ffd7a2",
+        "color14": "#ffeaab",
+        "color15": "#fffff6"
+    }
+}

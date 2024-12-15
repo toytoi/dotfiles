@@ -1,0 +1,43 @@
+#!/bin/sh
+
+kill_and_wait () {
+    if [[ `pgrep -c "$1"` -gt 0 ]]
+    then
+        killall "$1"
+        while [[ `pgrep -c "$1"` -gt 0 ]];
+        do
+            sleep 0.1
+        done;
+    fi;
+}
+
+# Source colorscheme
+source "${HOME}/.cache/wal/colors.sh"
+
+# Compositor
+kill_and_wait picom
+picom --animations &
+
+# Set Cursor
+xsetroot -cursorname left_ptr &
+
+# Authentication Agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Applets
+kill_and_wait nm-applet
+nm-applet --indicator &
+
+# Daemons
+kill_and_wait dunst
+kill_and_wait sxhkd
+dunst > /dev/null 2> /dev/null &
+thunar --daemon &
+
+# Scripts
+~/.config/bspwm/scripts/low_bat_notifier.sh &
+
+# Torrenting 
+qbittorrent --no-splash &
+nicotine -s &
+

@@ -1,0 +1,2 @@
+clip_command=goldendict %TEXT%
+force_cpu=yes
