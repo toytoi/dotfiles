@@ -16,5 +16,5 @@ For Arch-based distros.
 * Color Scheming - [wpgtk](https://aur.archlinux.org/packages/wpgtk)
 * Text/Code Editor - [Neovim](https://archlinux.org/packages/extra/x86_64/neovim/) + [NvChad](https://nvchad.com/)
 * File Manager - [Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)
-* Video Player - [mpv](https://wiki.archlinux.org/title/Mpv)
-* Image Viewier - [nsxiv](https://wiki.archlinux.org/title/Sxiv)
+* Video Player - [mpv]([https://wiki.archlinux.org/title/Mpv](https://archlinux.org/packages/extra/x86_64/mpv/))
+* Image Viewier - [nsxiv](https://archlinux.org/packages/extra/x86_64/nsxiv/)
