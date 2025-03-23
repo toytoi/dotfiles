@@ -1,79 +1,61 @@
 local options = {
-    formatters_by_ft = {
-        lua = { "stylua" },
-        css = { "prettier" },
-        html = { "prettier" },
-        -- c_cpp = { "clang-format" },
-        cpp = { "clang-format" },
-        c = { "clang-format" },
-        -- java = { "google-java-format" },
-    },
+   formatters_by_ft = {
+      lua = { "stylua" },
+      css = { "prettier" },
+      html = { "prettier" },
+      -- c_cpp = { "clang-format" },
+      cpp = { "clang-format" },
+      c = { "clang-format" },
+      python = { "black", "isort" },
+      -- java = { "google-java-format" },
+   },
+   formatters = {
+      ["clang-format"] = {
+         command = "clang-format",
+         prepend_args = function()
+            return {
+               "-style=file",
+               "--verbose",
+               "--fallback-style=GNU",
+            }
+         end,
+      },
+      -- Lua
+      stylua = {
+         prepend_args = {
+            "--column-width",
+            "80",
+            "--line-endings",
+            "Unix",
+            "--indent-type",
+            "Spaces",
+            "--indent-width",
+            "3",
+            "--quote-style",
+            "AutoPreferDouble",
+         },
+      },
+      -- Python
+      black = {
+         command = "black",
+         prepend_args = {
+            "--line-length",
+            "80",
+         },
+      },
+      isort = {
+         prepend_args = {
+            "--profile",
+            "black",
+         },
+      },
+   },
 
-    formatters = {
-        -- ["clang_format"] = {
-        --     prepend_args = {
-        --         "-style= { \
-        --             IndentWidth: 3, \
-        --             TabWidth: 3, \
-        --             UseTab: Never, \
-        --             AccessModifierOffset: 0, \
-        --             IndentAccessModifiers: true, \
-        --             PackConstructorInitializers: Never}",
-        --     },
-        -- },
-        ["clang-format"] = {
-            prepend_args = {
-                "-style={ \
-                    IndentWidth: 3, \
-                    TabWidth: 3, \
-                    UseTab: Never, \
-                    AccessModifierOffset: 0, \
-                    IndentAccessModifiers: true, \
-                    PackConstructorInitializers: Never}",
-            },
-        }, -- -- Golang
-        -- ["goimports-reviser"] = {
-        --     prepend_args = { "-rm-unused" },
-        -- },
-        -- golines = {
-        --     prepend_args = { "--max-len=80" },
-        -- },
-        -- Lua
-        stylua = {
-            prepend_args = {
-                "--column-width",
-                "80",
-                "--line-endings",
-                "Unix",
-                "--indent-type",
-                "Spaces",
-                "--indent-width",
-                "4",
-                "--quote-style",
-                "AutoPreferDouble",
-            },
-        },
-        -- -- Python
-        -- black = {
-        --     prepend_args = {
-        --         "--fast",
-        --         "--line-length",
-        --         "80",
-        --     },
-        -- },
-        -- isort = {
-        --     prepend_args = {
-        --         "--profile",
-        --         "black",
-        --     },
-        -- },
-    },
-
-    format_on_save = {
-        -- These options will be passed to conform.format()
-        timeout_ms = 500,
-        lsp_fallback = true,
-    },
+   format_on_save = {
+      -- These options will be passed to conform.format()
+      timeout_ms = 500,
+      lsp_fallback = true,
+   },
 }
 
 require("conform").setup(options)

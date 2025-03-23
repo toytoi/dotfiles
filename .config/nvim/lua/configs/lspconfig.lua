@@ -8,11 +8,11 @@ local servers = { "html", "cssls", "ts_ls", "pyright", "jdtls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        on_attach = on_attach,
-        on_init = on_init,
-        capabilities = capabilities,
-    }
+   lspconfig[lsp].setup {
+      on_attach = on_attach,
+      on_init = on_init,
+      capabilities = capabilities,
+   }
 end
 
 -- clang, c/c++
@@ -25,11 +25,11 @@ end
 -- }
 
 lspconfig.clangd.setup {
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        on_attach(client, bufnr)
-    end,
-    on_init = on_init,
-    capabilities = capabilities,
+   on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+      on_attach(client, bufnr)
+   end,
+   on_init = on_init,
+   capabilities = capabilities,
 }
