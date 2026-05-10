@@ -51,6 +51,10 @@ vim.api.nvim_create_autocmd("FileType", {
    end,
 })
 
+vim.g.vimtex_compiler_latexmk = {
+   out_dir = "build",
+}
+
 o.clipboard = "unnamedplus"
 o.incsearch = true
 o.ignorecase = true

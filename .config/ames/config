@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
-AUDIO_FIELD="SentAudio"
-SCREENSHOT_FIELD="Image"
-SENTENCE_FIELD="SentEng"
+AUDIO_FIELD="sentenceAudio"
+SCREENSHOT_FIELD="picture"
+SENTENCE_FIELD="sentence"
 # leave OUTPUT_MONITOR blank to autoselect a monitor.
 OUTPUT_MONITOR=""
 AUDIO_BITRATE="64k"
@@ -11,4 +11,5 @@ AUDIO_VOLUME="1"
 IMAGE_FORMAT="webp"
 # -2 to calculate dimension while preserving aspect ratio.
 IMAGE_WIDTH="-2"
-IMAGE_HEIGHT="300"
+# IMAGE_HEIGHT="300"
+IMAGE_HEIGHT="400"

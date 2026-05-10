@@ -1,3 +1,20 @@
 *~
 *.swp
+*.bak
+*.log
+*.tmp
 
+# Local/private application state
+**/.git/
+**/.hg/
+**/.svn/
+**/.claude/
+**/.nvimlog
+**/cache/
+**/Cache/
+**/logs/
+**/Logs/
+**/state/
+**/sessions/
+**/Cookies*
+**/History*

@@ -5,19 +5,25 @@
 --ignore-errors
 --continue
 --add-metadata
--f 'bestvideo[height<=1080]+bestaudio,best'
--o '/home/toytoi/Videos/ytdlp/%(upload_date)s - %(title).64s.%(ext)s'
+-f "bestvideo+bestaudio/best"
+-o '/home/toytoi/Videos/ytdlp/video/%(upload_date)s - %(title).64s.%(ext)s'
 --merge-output-format mp4
 --geo-bypass
---user-agent "Mozilla/5.0 (Windows NT 10.0; rv:94.0) Gecko/20100101 Firefox/94.0"
+--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0"
 
 --sleep-requests 1.5
 --force-ipv4
 
 --verbose
---ignore-errors
 --write-info-json
 --write-description
 --write-thumbnail
 --write-sub
+--embed-thumbnail
+--embed-chapters
+
+--download-archive '/home/toytoi/Videos/ytdlp/archive.txt'
+
+--retries infinite
+--concurrent-fragments 4
 

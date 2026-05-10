@@ -7,6 +7,7 @@ For Arch-based distros.
 # Programs
 
 * Distro - [EndeavourOS](https://endeavouros.com/)
+* AUR Helper - [paru](https://aur.archlinux.org/packages/paru)
 * Terminal - [kitty](https://archlinux.org/packages/extra/x86_64/kitty/)
 * Window Manager - [bspwm](https://archlinux.org/packages/extra/x86_64/bspwm/) + [sxhkd](https://archlinux.org/packages/extra/x86_64/sxhkd/)
 * Compositor - [picom](https://aur.archlinux.org/packages/picom-git) (git)
@@ -16,5 +17,9 @@ For Arch-based distros.
 * Color Scheming - [wpgtk](https://aur.archlinux.org/packages/wpgtk)
 * Text/Code Editor - [Neovim](https://archlinux.org/packages/extra/x86_64/neovim/) + [NvChad](https://nvchad.com/)
 * File Manager - [Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)
+* Audio - [PipeWire](https://archlinux.org/packages/extra/x86_64/pipewire/) + [WirePlumber](https://archlinux.org/packages/extra/x86_64/wireplumber/)
 * Video Player - [mpv](https://archlinux.org/packages/extra/x86_64/mpv/)
-* Image Viewier - [nsxiv](https://archlinux.org/packages/extra/x86_64/nsxiv/)
+* Downloads - [yt-dlp](https://archlinux.org/packages/extra/any/yt-dlp/)
+* Screenshots - [Flameshot](https://archlinux.org/packages/extra/x86_64/flameshot/)
+* Wallpaper - [Nitrogen](https://archlinux.org/packages/extra/x86_64/nitrogen/)
+* Image Viewer - [nsxiv](https://archlinux.org/packages/extra/x86_64/nsxiv/)

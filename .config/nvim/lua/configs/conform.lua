@@ -40,13 +40,18 @@ local options = {
          command = "black",
          prepend_args = {
             "--line-length",
-            "80",
+            "100",
          },
       },
       isort = {
          prepend_args = {
             "--profile",
             "black",
+            "--force-single-line",
+            "--lines-after-imports",
+            "2",
+            "--line-length",
+            "119",
          },
       },
    },

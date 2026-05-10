@@ -14,9 +14,11 @@ super + Return
 #                 -show-icons -drun-icon-theme "Adapta-Nokto" -font "Droid Sans Regular 10"
 super + d
 	rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal kitty \
+                -columns 1 -padding 50 -hide-scrollbar -terminal kitty \
                 # -show-icons -drun-icon-theme "gruvbox-light-hard" -font "Droid Sans Regular 10"
                 -show-icons -drun-icon-theme "wpg"
+                -drun-match-fields "name,exec,generic" \
+                -filter "!LSP"
 
 
 # show open window
@@ -30,6 +32,9 @@ super + shift + d
 	rofi -modi drun -show ssh -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
                 -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
+
+super + BackSpace
+   bspc node @parent -R 90
 
 # power-menu
 super + shift + e
@@ -47,7 +52,7 @@ super + Escape
 super + alt + shift + =
 	bspc {quit,wm -r}
 
-# again 
+# again
 ctrl + shift + esc + Return
     bspc {quit, wm -r}
 
@@ -110,8 +115,19 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
+# super + {_,shift + }{1-9,0}
+# 	bspc config pointer_follows_focus true && bspc {desktop -f,node -d} '^{1-9,10}' && bspc config pointer_follows_focus false
+
 super + {_,shift + }{1-9,0}
-	bspc config pointer_follows_focus true && bspc {desktop -f,node -d} '^{1-9,10}' && bspc config pointer_follows_focus false
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Desktop 11 (using the MINUS key)
+super + {_,shift + }minus
+    bspc config pointer_follows_focus true && bspc {desktop -f,node -d} XI && bspc config pointer_follows_focus false
+
+# Desktop 12 (using the EQUAL key)
+super + {_,shift + }equal
+    bspc config pointer_follows_focus true && bspc {desktop -f,node -d} XII && bspc config pointer_follows_focus false
 
 #
 # preselect
@@ -175,23 +191,34 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
   brillo -U 2 -q
 
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 
 # Screenshot
 Print
   scrot "/home/toytoi/Pictures/screenshots/screenshot-$(date +%F_%T).png"
 
 # Snip Screenshot
+# super + shift + s
+#   scrot -d 1 -e 'xclip -selection clipboard -target image/png -i $f' --select --line mode=edge "/home/toytoi/Pictures/screenshots/snip/snip-$(date +%F_%T).png"
 super + shift + s
-  scrot -d 1 -e 'xclip -selection clipboard -target image/png -i $f' --select --line mode=edge "/home/toytoi/Pictures/screenshots/snip/snip-$(date +%F_%T).png" 
+   flameshot gui
+
+super + alt + c
+   clipmenu
 
 super + Print
-  ~/.config/bspwm/scripts/screenshot.sh
+  flameshot full
 
 # Shortcuts
 super + shift + w
   librewolf -P "日本語"
 
 super + w
+   gtk-launch mullvad-browser
+
+super + ctrl + w
   librewolf -P "Default"
 
 super + alt + w
@@ -204,7 +231,10 @@ super + n
   thunar
 
 super + r
-  mullvad-exclude torbrowser-launcher
+  mullvad-exclude gtk-launch torbrowser-launcher
+
+super + p
+  tauon
 
 super + z
   ames -r
@@ -215,10 +245,10 @@ super + shift + v
 # super + v
 #   ames -c
 
-super + shift + g 
+super + shift + g
   easyeffects
 
-super + alt + s 
+super + alt + s
   transformers_ocr recognize
 
 # Kill window for frozen apps

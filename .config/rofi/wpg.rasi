@@ -17,13 +17,19 @@
     color13:	#ffd7a2;
     color14:	#ffeaab;
     color15:	#fffff6;
-    active:		#cbab5f;
-    inactive:	#8c7641;
+    active:		#cbab81;
+    inactive:	#8c7659;
+    highlight: @color12;
 
 	background:						@color0;
+	// background:						rgba(52, 30, 21, 0.9);
+
+   // background:	#341e1500;
+
     foreground:						@color15;
 
     background-color:				@background;
+    // background-color:	#00000000;
     border-color:					@background;
     separatorcolor:					@color8;
     scrollbar-handle:				@color9;
@@ -48,20 +54,33 @@
     alternate-urgent-foreground:	@color15;
     selected-urgent-background:		@color14;
     selected-urgent-foreground:		@foreground;
+
+    spacing: 8px;
+    border: 0;
 }
+
 
 
 window {
     background-color: @background;
+    // background-color: rgba(52, 30, 21, 0.6);
 	border-color: @active;
-    border:           5;
+    border:           1px solid;
+    border-radius: 20px;
+    // border: 1px solid rgba(255,255,255,0.1);
     padding:          0;
+    border-radius: 20px;
+    transparency: "real";
+    // location:west;
+    // width: 20%;
+    height: 40%;
+    font: "CaskaydiaCoveNerdFont 12";
 }
 
 mainbox {
     border:  0px;
 	border-color: @active;
-    padding: 0;
+    padding: 15px;
 }
 
 message {
@@ -71,6 +90,7 @@ message {
 }
 
 textbox {
+    highlight:  @highlight;
     text-color: @color15;
 }
 
@@ -82,9 +102,17 @@ listview {
     scrollbar:    @scrollbar;
 }
 
+// listview {
+//    columns: 1;
+//    spacing: 8px;
+// }
+
 element {
     border:  0;
-    padding: 3px;
+    border-radius: 8px;
+    // padding: 3px;
+    padding: 6px 10px;
+    background-color: transparent;
 }
 
 element.normal.normal {
@@ -134,6 +162,7 @@ element.alternate.active {
 
 scrollbar {
     width:        4px;
+    // width:        100%;
     border:       0;
     handle-color: @scrollbar-handle;
     handle-width: 8px;
@@ -148,7 +177,9 @@ sidebar {
 inputbar {
     spacing:    1;
     text-color: @normal-foreground;
-    padding:    5px;
+    // padding:    5px;
+    border-radius: 12px;
+    padding: 6px 12px;
     children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
 }
 
@@ -175,4 +206,6 @@ textbox-prompt-sep {
 element-text, element-icon {
 	text-color: @foreground;
 	background-color: transparent;
+   size: 1.2em;
+   margin: 0 6px 0 0;
 }

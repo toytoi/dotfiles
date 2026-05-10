@@ -17,6 +17,25 @@ return {
    },
 
    {
+      "Julian/lean.nvim",
+      event = { "BufReadPre *.lean", "BufNewFile *.lean" },
+      dependencies = {
+         "nvim-lua/plenary.nvim",
+      },
+      opts = {
+         mappings = true,
+      },
+   },
+
+   {
+      "mfussenegger/nvim-lint",
+      event = { "BufWritePost", "BufEnter", "InsertLeave" },
+      config = function()
+         require "configs.lint"
+      end,
+   },
+
+   {
       "williamboman/mason.nvim",
       opts = {
          -- ensure_installed = {
@@ -35,8 +54,9 @@ return {
 
    {
       "nvim-treesitter/nvim-treesitter",
-      opts = {
-         ensure_installed = {
+      opts = function(_, opts)
+         opts.ensure_installed = opts.ensure_installed or {}
+         vim.list_extend(opts.ensure_installed, {
             "vim",
             "cpp",
             "lua",
@@ -45,8 +65,15 @@ return {
             "css",
             "java",
             "c",
-         },
-      },
+            "markdown",
+            "markdown_inline",
+         })
+         return opts
+      end,
+      config = function(_, opts)
+         require("nvim-treesitter.configs").setup(opts)
+         require("configs.treesitter_compat").setup()
+      end,
    },
 
    {
@@ -101,6 +128,45 @@ return {
             -- ...
          })
       end,
+   },
+
+   {
+      "MeanderingProgrammer/render-markdown.nvim",
+      ft = { "markdown" },
+      dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+      opts = {
+         -- Rendered headings use bold + color highlights
+         heading = {
+            enabled = true,
+            sign = false,
+            icons = { "# ", "## ", "### ", "#### ", "##### ", "###### " },
+         },
+         -- Code blocks get a background highlight
+         code = {
+            enabled = true,
+            sign = false,
+            style = "full",  -- "full" shows language label + background, "normal" just background
+            width = "block",
+         },
+         -- Bullet points replaced with icons
+         bullet = {
+            enabled = true,
+            icons = { "●", "○", "◆", "◇" },
+         },
+         -- Checkboxes
+         checkbox = {
+            enabled = true,
+            unchecked = { icon = "󰄱 " },
+            checked = { icon = "󰱒 " },
+         },
+         -- Tables get borders
+         pipe_table = {
+            enabled = true,
+            style = "full",
+         },
+         -- Only render in normal mode so you can still edit cleanly
+         render_modes = { "n", "c" },
+      },
    },
 
    -- {

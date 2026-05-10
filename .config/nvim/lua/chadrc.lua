@@ -16,6 +16,10 @@ local M = {
          "pyright",
          "jdtls",
          "typescript-language-server",
+         "black",
+         "isort",
+         "flake8",
+         "mypy",
       },
    },
 }
